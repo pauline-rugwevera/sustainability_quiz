@@ -34,6 +34,26 @@ questions =[
     ]
 
 
+def run_test(questions):
+    for question in questions:
+        #   answer = print(question.prompt)
+          print(question.prompt)
+        #   user_selection()
+          if user_selection() == question.answer:
+              print("Great")
+              time.sleep(3)
+          else:
+                print("wrong")
+                time.sleep(3)
+
+              
+
+
+
+
+
+
+
 
 def start_game():
     print(LOGO)
