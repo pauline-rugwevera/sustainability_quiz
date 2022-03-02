@@ -34,7 +34,25 @@ questions =[
     ]
 
 
+def user_selection():
+    """
+    Function to accept user answer,validate it
+    """
+    option = input("Please choose an option:- (A/B/C)\n")
+    accepted_choice = option.lower()
+    if accepted_choice not in ['a', 'b', 'c']:
+        print("Not a valid choice")
+        return user_selection()
+
+    return accepted_choice
+
+
+
+
 def run_test(questions):
+    """
+    Function to prompt questions and check if answer is correct
+    """
     for question in questions:
         #   answer = print(question.prompt)
           print(question.prompt)
@@ -51,10 +69,6 @@ def run_test(questions):
 
 
 
-
-
-
-
 def start_game():
     print(LOGO)
     time.sleep(1)
@@ -62,7 +76,7 @@ def start_game():
     time.sleep(1)
     print(INTRO_MESSAGE)
     time.sleep(1)
-    # run_test(questions)
+    run_test(questions)
     time.sleep(1)
 
 start_game()
