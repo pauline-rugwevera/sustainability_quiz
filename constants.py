@@ -27,6 +27,8 @@ INTRO_MESSAGE = (
   "yet many of us use buzz words such as biomass "
   "carbon neutral and climate change despite "
   "having no idea what they mean. "
+  "Why not take our quiz to see if you are ahead "
+  "of the herd when it comes to sustainable buzzwords? "
 
 
 

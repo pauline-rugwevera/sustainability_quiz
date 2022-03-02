@@ -18,5 +18,7 @@ def start_game():
     print(LOGO)
     time.sleep(1)
     user_name()
+    time.sleep(1)
+    print(INTRO_MESSAGE)
 
 start_game()
