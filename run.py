@@ -28,16 +28,16 @@ menus = [
 
 
 
-# def display_menu(menus):
-#     """
-#     function to display the menuS
-#     """
-#     for menu in menus:
-#         print(menu.prompt)
-#         if user_selection() == menu.choice:
-#             run_test(questions)
-#         else:
-#             print('ok')
+def display_menu(menus):
+    """
+    function to display the menuS
+    """
+    for menu in menus:
+        print(menu.prompt)
+        if user_selection() == menu.choice:
+            run_test(questions)
+        else:
+            print('ok')
             
        
      
