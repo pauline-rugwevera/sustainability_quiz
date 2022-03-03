@@ -1,6 +1,7 @@
 import time  # Module required to add a pause as needed
 from constants import (LOGO, INTRO_MESSAGE)
 from question import Question
+from question import Menu
 
 
 
@@ -14,6 +15,36 @@ def user_name():
         return user_name()
     else:
         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
+
+
+# menu_prompt = [
+#     "What will you like to do\n"
+#     "A: PLAY\n"
+#     "B: QUIT"
+# ]
+# menus = [
+#     Menu(menu_prompt[0], "a")
+# ]
+
+
+
+# def display_menu(menus):
+#     """
+#     function to display the menuS
+#     """
+#     for menu in menus:
+#         print(menu.prompt)
+#         if user_selection() == menu.choice:
+#             run_test(questions)
+#         else:
+#             print('ok')
+            
+       
+     
+    
+
+
+
 
 
 questions_prompt = [
@@ -122,7 +153,8 @@ def start_game():
     # time.sleep(1)
     # print(INTRO_MESSAGE)
     # time.sleep(3)
-    run_test(questions)
+    # run_test(questions)
+    display_menu(menus)
     
     time.sleep(1)
 
