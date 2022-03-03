@@ -22,9 +22,9 @@ menu_prompt = [
     "A: PLAY\n"
     "B: QUIT"
 ]
-# menus = [
-#     Menu(menu_prompt[0], "a")
-# ]
+menus = [
+    Menu(menu_prompt[0], "a")
+]
 
 
 
