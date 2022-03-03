@@ -48,25 +48,37 @@ def display_menu(menus):
 
 
 questions_prompt = [
-    "1: What is regenerative farming?\n"
-    "A A farming method that helps farmers decrease costs\n"
-    "B new farming method seen on Doctor Who\n "
-    "C A sustainable approach to farminng that locks carbon in the soil\n\n",
-    "2: What color is strawberry?\n a purple\n b Green\n c Red\n\n"
+    "1: What is regenerative farming?\n\n"
+    "A: A farming method that helps farmers decrease costs\n"
+    "B: new farming method seen on Doctor Who\n"
+    "C: A sustainable approach to farminng that locks carbon in the soil\n",
+    "2: Why is it good to buy organic, regeneratively farmed products when you can?\n\n" 
+    "A: Organic produces faster\n"
+    "B: Organic is healthier for people, planet and help tackling climate change\n"
+    "C: Because farmers get paid more for their products\n"
     ]
 
 
 questions = [
-    Question(questions_prompt[0], "a", "oops\n"),
-    Question(questions_prompt[1], "c", "cool\n")
+    Question(questions_prompt[0], "a", 
+    "Not too hard to start you off, regenerative "
+    "farming is a sustainable approach to "
+    "farming that focuses on soil regeneration, "
+    "increasing biodiversity, locking-in carbon "
+    "and strengthening the health and vitality of the soil.\n"),
+    Question(questions_prompt[1], "b", 
+    "Did you know? Organic, regeneratively farmed products "
+    "are made in a way that puts the environment first "
+    "by choosing products like this you can help make positive "
+    "steps in the fight against climate change.\n")
     ]
 
 
 def user_selection():
     """
-    functin
+    function to accet user choice of answers
     """
-    option = input("Please choose an option:- (A/B)\n")
+    option = input("Please choose an option:- (A/B/C)\n")
     choice_lc = option.lower()
     if choice_lc not in ['a', 'b', 'c']:
         print('invalid_choice')
@@ -83,8 +95,15 @@ def run_test(questions):
         print(question.prompt)
         if user_selection() == question.answer:
             print("Weldone\n")
+            time.sleep(1)
+            print(question.feedback)
+            time.sleep(2)
+
         else:
             print("Incorrect\n")
+            time.sleep(1)
+            print(question.feedback)
+            time.sleep(2)
 
 
 
@@ -115,48 +134,24 @@ def run_test(questions):
 
     # return choice_lc
        
-    
-
-   
-
-        
-
-     
-        
-
- 
-    
-    
-        
-    
-    
-    
-        
-
-    
-
        
-        
-       
-
-        # print(question.feedback)
         # time.sleep(3)
         
         
 def start_game():
     """
     function to
-    """
+    # """
     # print(LOGO)
     # time.sleep(1)
     # user_name()
     # time.sleep(1)
     # print(INTRO_MESSAGE)
     # time.sleep(3)
-    # run_test(questions)
-    display_menu(menus)
-    
-    time.sleep(1)
+    # display_menu(menus)
+    run_test(questions)
+
+    # time.sleep(1)
 
 
 start_game()
