@@ -17,11 +17,11 @@ def user_name():
         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
 
 
-# menu_prompt = [
-#     "What will you like to do\n"
-#     "A: PLAY\n"
-#     "B: QUIT"
-# ]
+menu_prompt = [
+    "What will you like to do\n"
+    "A: PLAY\n"
+    "B: QUIT"
+]
 # menus = [
 #     Menu(menu_prompt[0], "a")
 # ]
