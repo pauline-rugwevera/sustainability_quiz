@@ -4,7 +4,6 @@ from question import Question
 from question import Menu
 
 
-
 def user_name():
     """
     Function to accept and validate user name
@@ -12,6 +11,9 @@ def user_name():
     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
     if len(name_entry) < 3:
         print("Enter at least 3 letters")
+        return user_name()
+    elif name_entry.isdigit():
+        print("Only letters allowed!")
         return user_name()
     else:
         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
@@ -27,7 +29,6 @@ menus = [
 ]
 
 
-
 def display_menu(menus):
     """
     function to display the menuS
@@ -35,16 +36,12 @@ def display_menu(menus):
     for menu in menus:
         print(menu.prompt)
         if user_selection() == menu.choice:
-            run_test(questions)
+            # run_test(questions)
+            print("Good to have you on board\n\n")
+            time.sleep(2)
+            
         else:
             print('ok')
-            
-       
-     
-    
-
-
-
 
 
 questions_prompt = [
@@ -52,16 +49,18 @@ questions_prompt = [
     "A: A farming method that helps farmers decrease costs\n"
     "B: new farming method seen on Doctor Who\n"
     "C: A sustainable approach to farminng that locks carbon in the soil\n",
-    "2: Why is it good to buy organic, regeneratively farmed products when you can?\n\n" 
+    "2: Why is it good to buy organic, regeneratively farmed products when you"
+    "can?\n\n" 
     "A: Organic produces faster\n"
-    "B: Organic is healthier for people, planet and help tackling climate change\n"
+    "B: Organic is healthier for people, planet and help tackling climate "
+    "change\n"
     "C: Because farmers get paid more for their products\n"
     ]
 
 
 questions = [
     Question(questions_prompt[0], "a", 
-    "Not too hard to start you off, regenerative "
+    "Not too hard to start you off, regenerative"
     "farming is a sustainable approach to "
     "farming that focuses on soil regeneration, "
     "increasing biodiversity, locking-in carbon "
@@ -106,49 +105,18 @@ def run_test(questions):
             time.sleep(2)
 
 
-
-
-
-
-# def run_test(questions):
-
-#     """
-#     function display question and check if answer is correct to provide feedback
-#     """
-#     for question in questions:
-#         print(question.prompt)
-#         option = input("Please choose an option:- (A/B)\n").lower()
-#         time.sleep(1)
-#         if option == question.answer:
-#             print('Weldone')
-#         else:
-#             print("A big no")
-
-       
-#         if option not in ['a', 'b', 'c']:
-#             print('invalid_choice')
-#             return run_test(questions)
-
-      
-     
-
-    # return choice_lc
-       
-       
-        # time.sleep(3)
-        
-        
 def start_game():
     """
     function to
     # """
-    # print(LOGO)
-    # time.sleep(1)
-    # user_name()
-    # time.sleep(1)
-    # print(INTRO_MESSAGE)
-    # time.sleep(3)
-    # display_menu(menus)
+    print(LOGO)
+    time.sleep(1)
+    user_name()
+    time.sleep(1)
+    print(INTRO_MESSAGE)
+    time.sleep(3)
+    display_menu(menus)
+   
     run_test(questions)
 
     # time.sleep(1)
