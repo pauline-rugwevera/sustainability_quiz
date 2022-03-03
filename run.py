@@ -1,3 +1,6 @@
+"""
+ # Module required to add a pause as needed
+"""
 import time  # Module required to add a pause as needed
 from constants import (LOGO, INTRO_MESSAGE)
 from question import Question
@@ -39,7 +42,6 @@ def display_menu(menus):
             # run_test(questions)
             print("Good to have you on board\n\n")
             time.sleep(2)
-            
         else:
             print('ok')
 
@@ -50,27 +52,28 @@ questions_prompt = [
     "B: new farming method seen on Doctor Who\n"
     "C: A sustainable approach to farminng that locks carbon in the soil\n",
     "2: Why is it good to buy organic, regeneratively farmed products when you"
-    "can?\n\n" 
+    "can?\n\n"
     "A: Organic produces faster\n"
     "B: Organic is healthier for people, planet and help tackling climate "
     "change\n"
     "C: Because farmers get paid more for their products\n"
     ]
-
-
 questions = [
-    Question(questions_prompt[0], "a", 
-    "Not too hard to start you off, regenerative"
-    "farming is a sustainable approach to "
-    "farming that focuses on soil regeneration, "
-    "increasing biodiversity, locking-in carbon "
-    "and strengthening the health and vitality of the soil.\n"),
-    Question(questions_prompt[1], "b", 
-    "Did you know? Organic, regeneratively farmed products "
-    "are made in a way that puts the environment first "
-    "by choosing products like this you can help make positive "
-    "steps in the fight against climate change.\n")
-    ]
+    Question(questions_prompt[0],
+             "a",
+             "Not too hard to start you off, regenerative"
+             "farming is a sustainable approach to "
+             "farming that focuses on soil regeneration, "
+             "increasing biodiversity, locking-in carbon "
+             "and strengthening the health and vitality of the soil.\n"),
+    Question(questions_prompt[1],
+             "b",
+             "Did you know? Organic, regeneratively farmed products "
+             "are made in a way that puts the environment first "
+             "by choosing products like this you can help make positive "
+             "steps in the fight against climate change.\n"),
+
+]
 
 
 def user_selection():
@@ -85,10 +88,12 @@ def user_selection():
 
     return choice_lc
 
+
 def run_test(questions):
 
     """
-    function display question and check if answer is correct to provide feedback
+    function display question and check if answer is correct to provide
+    feedback
     """
     for question in questions:
         print(question.prompt)
@@ -116,10 +121,7 @@ def start_game():
     print(INTRO_MESSAGE)
     time.sleep(3)
     display_menu(menus)
-   
     run_test(questions)
-
-    # time.sleep(1)
 
 
 start_game()
