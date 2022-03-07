@@ -3,6 +3,7 @@
 """
 import time  # Module required to add a pause as needed
 from datetime import datetime
+from tabulate import tabulate
 import gspread
 from google.oauth2.service_account import Credentials
 from constants import (LOGO, INTRO_MESSAGE)
@@ -62,29 +63,62 @@ else:
     print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
     
 
-menu_prompt = [
-    "What will you like to do\n"
-    "A: PLAY\n"
-    "B: QUIT"
-]
-menus = [
-    Menu(menu_prompt[0], "a")
-]
+# menu_prompt = [
+#     "What will you like to do\n"
+#     "A: PLAY\n"
+#     "B: QUIT"
+# ]
+# menus = [
+#     Menu(menu_prompt[0], "a")
+# ]
 
 
-def display_menu(menus):
+# def display_menu(menus):
+#     """
+#     function to display the menuS
+#     """
+#     for menu in menus:
+#         print(menu.prompt)
+#         if user_selection() == menu.choice:
+#             # run_test(questions)
+#             print("Good to have you on board\n\n")
+#             time.sleep(2)
+#         else:
+#             print('ok')
+
+
+
+
+
+
+
+
+
+
+def display_menu():
     """
-    function to display the menuS
+    function to display menu to choose from beginning of quiz
     """
-    for menu in menus:
-        print(menu.prompt)
-        if user_selection() == menu.choice:
-            # run_test(questions)
-            print("Good to have you on board\n\n")
-            time.sleep(2)
-        else:
-            print('ok')
+    print("what do you want to do?\n\n")
+    menu = (input("A: Play Quiz\nB: Show Top Ten scores\n\
+D: Quit\n").lower())
 
+    if menu == "a":
+        print("Starting the quiz....\n")
+        time.sleep(1)
+        run_test(questions)
+    if menu == "b":
+        print("Processing the scoreboard")
+        time.sleep(2)
+        # print(tabulate(data, headers='firstrow', showindex='always'))
+        print(tabulate(data[0:11], headers='firstrow',
+        tablefmt='fancy_grid'))
+
+
+
+        
+
+        
 
 questions_prompt = [
     "1: What is regenerative farming?\n\n"
@@ -167,14 +201,14 @@ def start_game():
     """
     function to
     # """
-    print(LOGO)
-    time.sleep(1)
-    # user_name()
-    time.sleep(1)
-    print(INTRO_MESSAGE)
-    time.sleep(3)
-    display_menu(menus)
-    run_test(questions)
+    # print(LOGO)
+    # time.sleep(1)
+  
+    # time.sleep(1)
+    # print(INTRO_MESSAGE)
+    # time.sleep(3)
+    display_menu()
+    # run_test(questions)
 
 
 start_game()
