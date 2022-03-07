@@ -24,21 +24,43 @@ SHEET = GSPREAD_CLIENT.open('sustainability')
 scores = SHEET.worksheet('scores')
 data = scores.get_all_values()
 
+now = datetime.now()
+# dd/mm/YY H:M
+dt_string = now.strftime("%d/%m/%Y %H:%M")
 
-def user_name():
-    """
-    Function to accept and validate user name
-    """
+
+# def user_name():
+#     """
+#     Function to accept and validate user name
+#     """
+#     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+#     if len(name_entry) < 3:
+#         print("Enter at least 3 letters")
+#         return user_name()
+#     elif name_entry.isdigit():
+#         print("Only letters allowed!")
+#         return user_name()
+#     else:
+#         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
+
+
+
+
+name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+
+if len(name_entry) < 3:
+
+    print("Enter at least 3 letters")
     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-    if len(name_entry) < 3:
-        print("Enter at least 3 letters")
-        return user_name()
-    elif name_entry.isdigit():
-        print("Only letters allowed!")
-        return user_name()
-    else:
-        print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
+    
+elif name_entry.isdigit():
 
+    print("Only letters allowed!")
+    name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+       
+else:
+    print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
+    
 
 menu_prompt = [
     "What will you like to do\n"
@@ -130,7 +152,13 @@ def run_test(questions):
             print(question.feedback)
             time.sleep(2)
         
-        print("You got", score, "out of 10")
+    print("You got", score, "out of 10")
+    time.sleep(1)
+    print("Now updating the score board")
+    scores = SHEET.worksheet('scores')
+    scores.append_row(values=[name_entry, score, dt_string])
+    scores.sort((2, 'des'), (4, 'asc'),)
+
 
 
 
@@ -141,7 +169,7 @@ def start_game():
     # """
     print(LOGO)
     time.sleep(1)
-    user_name()
+    # user_name()
     time.sleep(1)
     print(INTRO_MESSAGE)
     time.sleep(3)
