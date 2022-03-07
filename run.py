@@ -2,9 +2,27 @@
  # Module required to add a pause as needed
 """
 import time  # Module required to add a pause as needed
+from datetime import datetime
+import gspread
+from google.oauth2.service_account import Credentials
 from constants import (LOGO, INTRO_MESSAGE)
 from question import Question
 from question import Menu
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('sustainability')
+
+scores = SHEET.worksheet('scores')
+data = scores.get_all_values()
 
 
 def user_name():
@@ -73,6 +91,7 @@ questions = [
              "by choosing products like this you can help make positive "
              "steps in the fight against climate change.\n"),
 
+
 ]
 
 
@@ -95,9 +114,11 @@ def run_test(questions):
     function display question and check if answer is correct to provide
     feedback
     """
+    score = 0
     for question in questions:
         print(question.prompt)
         if user_selection() == question.answer:
+            score += 1
             print("Weldone\n")
             time.sleep(1)
             print(question.feedback)
@@ -108,6 +129,10 @@ def run_test(questions):
             time.sleep(1)
             print(question.feedback)
             time.sleep(2)
+        
+        print("You got", score, "out of 10")
+
+
 
 
 def start_game():
