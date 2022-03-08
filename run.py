@@ -30,38 +30,13 @@ now = datetime.now()
 dt_string = now.strftime("%d/%m/%Y %H:%M")
 
 
-# def user_name():
-#     """
-#     Function to accept and validate user name
-#     """
-#     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-#     if len(name_entry) < 3:
-#         print("Enter at least 3 letters")
-#         return user_name()
-#     elif name_entry.isdigit():
-#         print("Only letters allowed!")
-#         return user_name()
-#     else:
-#         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
 
 
 
 
-name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+# print(INTRO_MESSAGE)
+# time.sleep(1)
 
-if len(name_entry) < 3:
-
-    print("Enter at least 3 letters")
-    name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-    
-elif name_entry.isdigit():
-
-    print("Only letters allowed!")
-    name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-       
-else:
-    print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
-    
 
 # menu_prompt = [
 #     "What will you like to do\n"
@@ -90,35 +65,21 @@ else:
 
 
 
-
-
-
-
-
-def display_menu():
+def user_name():
     """
-    function to display menu to choose from beginning of quiz
+    Function to accept and validate user name
     """
-    print("what do you want to do?\n\n")
-    menu = (input("A: Play Quiz\nB: Show Top Ten scores\n\
-D: Quit\n").lower())
+    name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+    if len(name_entry) < 3:
+        print("Enter at least 3 letters")
+        return user_name()
+    elif name_entry.isdigit():
+        print("Only letters allowed!")
+        return user_name()
+    else:
+        print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
 
-    if menu == "a":
-        print("Starting the quiz....\n")
-        time.sleep(1)
-        run_test(questions)
-    if menu == "b":
-        print("Processing the scoreboard")
-        time.sleep(2)
-        # print(tabulate(data, headers='firstrow', showindex='always'))
-        print(tabulate(data[0:11], headers='firstrow',
-        tablefmt='fancy_grid'))
-
-
-
-        
-
-        
+   
 
 questions_prompt = [
     "1: What is regenerative farming?\n\n"
@@ -163,13 +124,37 @@ def user_selection():
 
     return choice_lc
 
-
 def run_test(questions):
 
     """
     function display question and check if answer is correct to provide
     feedback
     """
+    name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+
+    if len(name_entry) < 3:
+        print("Enter at least 3 letters")
+        name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+    
+    if name_entry.isdigit():
+        print("Only letters allowed!")
+        name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+    
+    else:
+        print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")  
+        time.sleep(2)
+
+    # if len(name_entry) < 3:
+    #     print("Enter at least 3 letters")
+    #     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+    
+    # elif name_entry.isdigit():
+    #       print("a and b are equal")
+    # else:
+    #  print("a is greater than b")
+
+   
+  
     score = 0
     for question in questions:
         print(question.prompt)
@@ -186,12 +171,50 @@ def run_test(questions):
             print(question.feedback)
             time.sleep(2)
         
-    print("You got", score, "out of 10")
-    time.sleep(1)
-    print("Now updating the score board")
+    print("Thank you for completing the quiz " + name_entry)
+    print("You got", score, "out of 10\n\n")
+    time.sleep(2)
+    print("Now updating the score board...................\n")
+    time.sleep(3)
     scores = SHEET.worksheet('scores')
     scores.append_row(values=[name_entry, score, dt_string])
     scores.sort((2, 'des'), (4, 'asc'),)
+
+def display_menu():
+    """
+    function to display menu to choose from beginning of quiz
+    """
+    print("what do you want to do?\n\n")
+    menu = (input("A: Play Quiz\nB: Show Top Ten scores\n\
+C: Quit\n").lower())
+
+    if menu == "a":
+        print("Starting the quiz.................\n")
+        time.sleep(3)
+        run_test(questions)
+        display_menu()
+        
+        
+    if menu == "b":
+        print("Just a moment to process the scoreboard.....")
+        time.sleep(2)
+        # print(tabulate(data, headers='firstrow', showindex='always'))
+        print(tabulate(data[0:11], headers='firstrow',
+        tablefmt='fancy_grid'))
+        time.sleep(4)
+        display_menu()
+  
+    if menu == "c":
+        print("Goodbye Hope to see you soon.........\n")
+        time.sleep(2)
+        start_game()
+    
+    if menu not in ['a', 'b', 'c']:
+        print('invalid_choice')
+        return display_menu()
+
+
+
 
 
 
@@ -200,15 +223,32 @@ def run_test(questions):
 def start_game():
     """
     function to
-    # """
-    # print(LOGO)
-    # time.sleep(1)
-  
-    # time.sleep(1)
-    # print(INTRO_MESSAGE)
-    # time.sleep(3)
+    """
+
+    print(LOGO)
+    time.sleep(1)
     display_menu()
-    # run_test(questions)
 
 
 start_game()
+
+
+
+# def run_test(questions):
+
+#     """
+#     function display question and check if answer is correct to provide
+#     feedback
+#     """
+#     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+
+#     if len(name_entry) < 3:
+#          print("Enter at least 3 letters")
+#     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+    
+#     if name_entry.isdigit():
+#         print("Only letters allowed!")
+#     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+    
+#     else:
+#         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
