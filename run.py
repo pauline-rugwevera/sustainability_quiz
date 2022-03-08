@@ -6,7 +6,7 @@ from datetime import datetime
 from tabulate import tabulate
 import gspread
 from google.oauth2.service_account import Credentials
-from constants import (LOGO, INTRO_MESSAGE)
+from constants import (LOGO, INTRO_MESSAGE, GAMEOVER)
 from question import Question
 from question import Menu
 
@@ -79,7 +79,6 @@ def user_name():
     else:
         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
 
-   
 
 questions_prompt = [
     "1: What is regenerative farming?\n\n"
@@ -93,6 +92,8 @@ questions_prompt = [
     "change\n"
     "C: Because farmers get paid more for their products\n"
     ]
+
+
 questions = [
     Question(questions_prompt[0],
              "a",
@@ -131,6 +132,7 @@ def run_test(questions):
     feedback
     """
     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+    score = 0
 
     if len(name_entry) < 3:
         print("Enter at least 3 letters")
@@ -143,30 +145,18 @@ def run_test(questions):
     else:
         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")  
         time.sleep(2)
-
-    # if len(name_entry) < 3:
-    #     print("Enter at least 3 letters")
-    #     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
     
-    # elif name_entry.isdigit():
-    #       print("a and b are equal")
-    # else:
-    #  print("a is greater than b")
-
-   
-  
-    score = 0
     for question in questions:
         print(question.prompt)
         if user_selection() == question.answer:
             score += 1
-            print("Weldone\n")
+            print("Weldone\n\n")
             time.sleep(1)
             print(question.feedback)
             time.sleep(2)
 
         else:
-            print("Incorrect\n")
+            print("Incorrect\n\n")
             time.sleep(1)
             print(question.feedback)
             time.sleep(2)
@@ -179,6 +169,9 @@ def run_test(questions):
     scores = SHEET.worksheet('scores')
     scores.append_row(values=[name_entry, score, dt_string])
     scores.sort((2, 'des'), (4, 'asc'),)
+    print(GAMEOVER)
+    time.sleep(5)
+    start_game()
 
 def display_menu():
     """
@@ -192,9 +185,7 @@ C: Quit\n").lower())
         print("Starting the quiz.................\n")
         time.sleep(3)
         run_test(questions)
-        display_menu()
-        
-        
+         
     if menu == "b":
         print("Just a moment to process the scoreboard.....")
         time.sleep(2)
@@ -226,7 +217,8 @@ def start_game():
     """
 
     print(LOGO)
-    time.sleep(1)
+    time.sleep(2)
+    
     display_menu()
 
 
