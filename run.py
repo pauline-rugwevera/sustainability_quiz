@@ -161,7 +161,7 @@ def run_test(questions):
             print(question.feedback)
             time.sleep(2)
         
-    print("Thank you for completing the quiz " + name_entry)
+    print("Thank you for completing the quiz " + name_entry + "\n\n")
     print("You got", score, "out of 10\n\n")
     time.sleep(2)
     print("Now updating the score board...................\n")
@@ -173,6 +173,27 @@ def run_test(questions):
     time.sleep(5)
     start_game()
 
+
+def quiz_instructions():
+    """
+    Function to display quiz instructions to the user
+    """
+    print("But first house keeping!\n\n")
+    time.sleep(2)
+    print(INTRO_MESSAGE)
+    time.sleep(4)
+    print("1. All questions are based on sustainability")
+    print("2. All questions are multiple choice based")
+    print("3. Choose either a,b or c for correct answer")
+    print("4. You will be told if your answer is correct or incorrect")
+    print("5. Score increase is based on correct answers only")
+    print("6. You will see your score at the end when you complete the quiz")
+    print("7. Score is added to the scoreboard at the end of quiz\n\n")
+
+    time.sleep(4)
+    print("Now lets roll..........\n\n")
+
+
 def display_menu():
     """
     function to display menu to choose from beginning of quiz
@@ -182,8 +203,8 @@ def display_menu():
 C: Quit\n").lower())
 
     if menu == "a":
-        print("Starting the quiz.................\n")
         time.sleep(3)
+        quiz_instructions()
         run_test(questions)
          
     if menu == "b":
