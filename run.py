@@ -8,7 +8,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from constants import (LOGO, INTRO_MESSAGE, GAMEOVER)
 from question import Question
-from question import Menu
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -90,25 +90,155 @@ questions_prompt = [
     "A: Organic produces faster\n"
     "B: Organic is healthier for people, planet and help tackling climate "
     "change\n"
-    "C: Because farmers get paid more for their products\n"
-    ]
+    "C: Because farmers get paid more for their products\n",
+    "3: Which of the following is not a renewable energy source\n\n"
+    "A: Wind\n"
+    "B: Solar\n"
+    "C: Coal\n",
+    "4: What is biodiversity?\n\n"
+    "A: A type of insects\n"
+    "B: A measurement of different life forms in a particular place"
+    "C: A type of plant species\n",
+    "5: When travelling to school which mode the of transport "
+    "of transport is best for environment?\n\n"
+    "A: Car\n"
+    "B: Bike\n"
+    "C: Train\n",
+    "6:What happens to waste that is not recycled?\n\n"
+    "A: Landfill\n"
+    "B: Throw into the sea\n"
+    "C: Burn\n",
+    "7: About 71% of the Earth is covered with water. How much of "
+    "it is fresh water?\n\n"
+    "A: 23%\n"
+    "B: 2.5%\n"
+    "C: 50%\n",
+    "8: How many UN Sustainable development goals are there?\n\n"
+    "A: 2\n"
+    "B: 20\n"
+    "C: 17\n",
+    "9: Which animal produces the wool we use to make clothes?\n\n"
+    "A: sheep\n"
+    "B: chimpanzee\n"
+    "C: cow\n",
+    "10: How many blades does a wind turbine usually have?\n\n"
+    "A: 1\n"
+    "B: 2\n"
+    "C: 3\n",
+    "11: Which of these energy sources is a fossil fuel?\n\n"
+    "A: Solar\n"
+    "B: Gas Turbine \n"
+    "C: Wind\n",
+    "12: What is the number one ranked solution for fighting climate change?\n\n"
+    "A: Manage refrigerants\n"
+    "B: Waste less water\n"
+    "C: Restore tropical forests\n",
+    "13: What does the governments climate change watchdog recommend as a "
+    "green substitute for air conditioning??\n\n"
+    "A: Opening windows to help create a through draughtn \n"
+    "B: Installing special blinds on glass and steel structures\n"
+    "C: Allowing ivy to grow\n",
+    "14: which nation became the first to ban all metal mining,"
+    "in an attempt to protect its freshwater supply?\n\n"
+    "A: El Salvador\n"
+    "B: Angola\n"
+    "C: Brazil\n",
+    "15: Which country generates the largest amount of solar power in the world?,"
+    "\n\n"
+    "A: Germany\n"
+    "B: China\n"
+    "C: Canada\n",
+    "16:  What does sustainability mean?\n\n"
+    "A: using only fossil fuels\n"
+    "B: using only non-renewable resources\n"
+    "C: Avoiding the depletion of natural resources in order to maintain "
+    "ecological balance.\n",
+    "17: What is NOT a sustainable practice?\n\n"
+    "A: buying"
+    "B: recycling\n"
+    "C: reusing.\n",
+    "18: Which of the following increases demand that pushes the "
+    "environment to its limit?\n\n"
+    "A: farming\n"
+    "B: population growth\n"
+    "C: fossil fuels.\n",
+    "19:Water resources are uniformly distributed around the world.\n\n"
+    "A: True"
+    "B: False\n"
+    "C: Sometimes.\n",
+    "20: Most energy used by humans comes from:\n\n"
+    "A: China\n"
+    "B: Brazil\n"
+    "C: Sun\n",
+    "21: What is one of the areas of the ocean called "
+    "where marine debris (garbage) has combined due to ocean currents?\n\n"
+    "A: The Great Pacific Garbage Patch\n"
+    "B: The Great Pacific Pristine Pool\n"
+    "C: The Great Pacific Dump Truck\n",
+    "22: Organic waste, like fruits and vegetables, is considered\n\n"
+    "A: nonbiodegradable\n"
+    "B: Healthy\n"
+    "C: biodegradable\n",
+    "23: What is the definition of climate?\n\n"
+    "A: The condition of the air around the Earth\n"
+    "B: The pattern of weather over time\n"
+    "C: The rainforest\n",
+    "24: What are some possible solutions to climate change\n\n"
+    "A: Use less energy\n"
+    "B: Plant trees and other plants\n"
+    "C: All of the above\n",
+    "25: How many pieces of litter are estimated to enter the sea on "
+    "a daily basis?\n\n"
+    "A: 8 million\n"
+    "B: 2 million\n"
+    "C: 1million\n",
+    "26: Which type of farming is sustainable\n\n"
+    "A: Plantations\n"
+    "B: shifting cultivation\n"
+    "C: cattle ranching\n",
+    "27: Eco-toirism should lead to"
+    "A: Environmental tourism\n"
+    "B: Sustainability\n"
+    "C: Sustainable tourism\n",
+    "28: Scientists are looking for new ways of generating hydrogen "
+    "from most renewable energy\n"
+    "A: solar energy\n"
+    "B: sunlight\n"
+    "C: coal\n",
+
+
+
+]
 
 
 questions = [
-    Question(questions_prompt[0],
-             "a",
-             "Not too hard to start you off, regenerative"
-             "farming is a sustainable approach to "
-             "farming that focuses on soil regeneration, "
-             "increasing biodiversity, locking-in carbon "
-             "and strengthening the health and vitality of the soil.\n"),
-    Question(questions_prompt[1],
-             "b",
-             "Did you know? Organic, regeneratively farmed products "
-             "are made in a way that puts the environment first "
-             "by choosing products like this you can help make positive "
-             "steps in the fight against climate change.\n"),
-
+    Question(questions_prompt[0], "a"),
+    Question(questions_prompt[1], "b"),
+    Question(questions_prompt[2], "c"),
+    Question(questions_prompt[3], "b"),
+    Question(questions_prompt[4], "b"),
+    Question(questions_prompt[5], "a"),
+    Question(questions_prompt[6], "b"),
+    Question(questions_prompt[7], "c"),
+    Question(questions_prompt[8], "a"),
+    Question(questions_prompt[9], "c"),
+    Question(questions_prompt[10], "b"),
+    Question(questions_prompt[11], "c"),
+    Question(questions_prompt[12], "c"),
+    Question(questions_prompt[13], "a"),
+    Question(questions_prompt[14], "b"),
+    Question(questions_prompt[15], "c"),
+    Question(questions_prompt[16], "a"),
+    Question(questions_prompt[17], "b"),
+    Question(questions_prompt[18], "b"),
+    Question(questions_prompt[19], "c"),
+    Question(questions_prompt[20], "a"),
+    Question(questions_prompt[21], "c"),
+    Question(questions_prompt[22], "b"),
+    Question(questions_prompt[23], "c"),
+    Question(questions_prompt[24], "a"),
+    Question(questions_prompt[25], "b"),
+    Question(questions_prompt[26], "b"),
 
 ]
 
@@ -120,7 +250,7 @@ def user_selection():
     option = input("Please choose an option:- (A/B/C)\n")
     choice_lc = option.lower()
     if choice_lc not in ['a', 'b', 'c']:
-        print('invalid_choice')
+        print('invalid_choice\n\n')
         return user_selection()
 
     return choice_lc
@@ -143,7 +273,7 @@ def run_test(questions):
         name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
     
     else:
-        print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")  
+        print(f"\nWelcome to the Sustainability Quiz {name_entry}\n\n")  
         time.sleep(2)
     
     for question in questions:
@@ -198,12 +328,12 @@ def display_menu():
     """
     function to display menu to choose from beginning of quiz
     """
-    print("what do you want to do?\n\n")
+    print("What do you want to do?\n\n")
     menu = (input("A: Play Quiz\nB: Show Top Ten scores\n\
 C: Quit\n").lower())
 
     if menu == "a":
-        time.sleep(3)
+        time.sleep(1)
         quiz_instructions()
         run_test(questions)
          
@@ -222,7 +352,7 @@ C: Quit\n").lower())
         start_game()
     
     if menu not in ['a', 'b', 'c']:
-        print('invalid_choice')
+        print('Invalid_choice! Choose either a,b or c\n\n')
         return display_menu()
 
 
