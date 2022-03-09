@@ -4,6 +4,7 @@
 import time  # Module required to add a pause as needed
 from datetime import datetime
 from tabulate import tabulate
+import random
 import gspread
 from google.oauth2.service_account import Credentials
 from constants import (LOGO, INTRO_MESSAGE, GAMEOVER)
@@ -81,101 +82,101 @@ def user_name():
 
 
 questions_prompt = [
-    "1: What is regenerative farming?\n\n"
+    " What is regenerative farming?\n\n"
     "A: A farming method that helps farmers decrease costs\n"
     "B: new farming method seen on Doctor Who\n"
     "C: A sustainable approach to farminng that locks carbon in the soil\n",
-    "2: Why is it good to buy organic, regeneratively farmed products when you"
+    " Why is it good to buy organic, regeneratively farmed products when you"
     "can?\n\n"
     "A: Organic produces faster\n"
     "B: Organic is healthier for people, planet and help tackling climate "
     "change\n"
     "C: Because farmers get paid more for their products\n",
-    "3: Which of the following is not a renewable energy source\n\n"
+    " Which of the following is not a renewable energy source\n\n"
     "A: Wind\n"
     "B: Solar\n"
     "C: Coal\n",
-    "4: What is biodiversity?\n\n"
+    " What is biodiversity?\n\n"
     "A: A type of insects\n"
     "B: A measurement of different life forms in a particular place"
     "C: A type of plant species\n",
-    "5: When travelling to school which mode the of transport "
+    " When travelling to school which mode the of transport "
     "of transport is best for environment?\n\n"
     "A: Car\n"
     "B: Bike\n"
     "C: Train\n",
-    "6:What happens to waste that is not recycled?\n\n"
+    " What happens to waste that is not recycled?\n\n"
     "A: Landfill\n"
     "B: Throw into the sea\n"
     "C: Burn\n",
-    "7: About 71% of the Earth is covered with water. How much of "
+    " About 71% of the Earth is covered with water. How much of "
     "it is fresh water?\n\n"
     "A: 23%\n"
     "B: 2.5%\n"
     "C: 50%\n",
-    "8: How many UN Sustainable development goals are there?\n\n"
+    " How many UN Sustainable development goals are there?\n\n"
     "A: 2\n"
     "B: 20\n"
     "C: 17\n",
-    "9: Which animal produces the wool we use to make clothes?\n\n"
+    " Which animal produces the wool we use to make clothes?\n\n"
     "A: sheep\n"
     "B: chimpanzee\n"
     "C: cow\n",
-    "10: How many blades does a wind turbine usually have?\n\n"
+    " How many blades does a wind turbine usually have?\n\n"
     "A: 1\n"
     "B: 2\n"
     "C: 3\n",
-    "11: Which of these energy sources is a fossil fuel?\n\n"
+    " Which of these energy sources is a fossil fuel?\n\n"
     "A: Solar\n"
     "B: Gas Turbine \n"
     "C: Wind\n",
-    "12: What is the number one ranked solution for fighting climate change?\n\n"
+    " What is the number one ranked solution for fighting climate change?\n\n"
     "A: Manage refrigerants\n"
     "B: Waste less water\n"
     "C: Restore tropical forests\n",
-    "13: What does the governments climate change watchdog recommend as a "
+    " What does the governments climate change watchdog recommend as a "
     "green substitute for air conditioning??\n\n"
     "A: Opening windows to help create a through draughtn \n"
     "B: Installing special blinds on glass and steel structures\n"
     "C: Allowing ivy to grow\n",
-    "14: which nation became the first to ban all metal mining,"
+    " Which nation became the first to ban all metal mining,"
     "in an attempt to protect its freshwater supply?\n\n"
     "A: El Salvador\n"
     "B: Angola\n"
     "C: Brazil\n",
-    "15: Which country generates the largest amount of solar power in the world?,"
+    " Which country generates the largest amount of solar power in the world?,"
     "\n\n"
     "A: Germany\n"
     "B: China\n"
     "C: Canada\n",
-    "16:  What does sustainability mean?\n\n"
+    " What does sustainability mean?\n\n"
     "A: using only fossil fuels\n"
     "B: using only non-renewable resources\n"
     "C: Avoiding the depletion of natural resources in order to maintain "
     "ecological balance.\n",
-    "17: What is NOT a sustainable practice?\n\n"
+    " What is NOT a sustainable practice?\n\n"
     "A: buying"
     "B: recycling\n"
     "C: reusing.\n",
-    "18: Which of the following increases demand that pushes the "
+    " Which of the following increases demand that pushes the "
     "environment to its limit?\n\n"
     "A: farming\n"
     "B: population growth\n"
     "C: fossil fuels.\n",
-    "19:Water resources are uniformly distributed around the world.\n\n"
+    " Water resources are uniformly distributed around the world.\n\n"
     "A: True"
     "B: False\n"
     "C: Sometimes.\n",
-    "20: Most energy used by humans comes from:\n\n"
+    "Most energy used by humans comes from:\n\n"
     "A: China\n"
     "B: Brazil\n"
     "C: Sun\n",
-    "21: What is one of the areas of the ocean called "
+    "What is one of the areas of the ocean called "
     "where marine debris (garbage) has combined due to ocean currents?\n\n"
     "A: The Great Pacific Garbage Patch\n"
     "B: The Great Pacific Pristine Pool\n"
     "C: The Great Pacific Dump Truck\n",
-    "22: Organic waste, like fruits and vegetables, is considered\n\n"
+    "Organic waste, like fruits and vegetables, is considered\n\n"
     "A: nonbiodegradable\n"
     "B: Healthy\n"
     "C: biodegradable\n",
@@ -183,24 +184,24 @@ questions_prompt = [
     "A: The condition of the air around the Earth\n"
     "B: The pattern of weather over time\n"
     "C: The rainforest\n",
-    "24: What are some possible solutions to climate change\n\n"
+    "What are some possible solutions to climate change\n\n"
     "A: Use less energy\n"
     "B: Plant trees and other plants\n"
     "C: All of the above\n",
-    "25: How many pieces of litter are estimated to enter the sea on "
+    "How many pieces of litter are estimated to enter the sea on "
     "a daily basis?\n\n"
     "A: 8 million\n"
     "B: 2 million\n"
     "C: 1million\n",
-    "26: Which type of farming is sustainable\n\n"
+    "Which type of farming is sustainable\n\n"
     "A: Plantations\n"
     "B: shifting cultivation\n"
     "C: cattle ranching\n",
-    "27: Eco-toirism should lead to"
+    "Eco-toirism should lead to"
     "A: Environmental tourism\n"
     "B: Sustainability\n"
     "C: Sustainable tourism\n",
-    "28: Scientists are looking for new ways of generating hydrogen "
+    "Scientists are looking for new ways of generating hydrogen "
     "from most renewable energy\n"
     "A: solar energy\n"
     "B: sunlight\n"
@@ -276,19 +277,23 @@ def run_test(questions):
         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n\n")  
         time.sleep(2)
     
-    for question in questions:
-        print(question.prompt)
-        if user_selection() == question.answer:
+    # for question in questions:
+    sampled_list = random.sample(questions, 10)
+    for sample in sampled_list:
+        # print(question.prompt)
+        print(sample.prompt)
+        # if user_selection() == question.answer:
+        if user_selection() == sample.answer:
             score += 1
             print("Weldone\n\n")
             time.sleep(1)
-            print(question.feedback)
+            # print(question.feedback)
             time.sleep(2)
 
         else:
             print("Incorrect\n\n")
             time.sleep(1)
-            print(question.feedback)
+            # print(question.feedback)
             time.sleep(2)
         
     print("Thank you for completing the quiz " + name_entry + "\n\n")
