@@ -98,7 +98,7 @@ questions_prompt = [
     "C: Coal\n",
     " What is biodiversity?\n\n"
     "A: A type of insects\n"
-    "B: A measurement of different life forms in a particular place"
+    "B: A measurement of different life forms in a particular place\n"
     "C: A type of plant species\n",
     " When travelling to school which mode the of transport "
     "of transport is best for environment?\n\n"
@@ -135,7 +135,7 @@ questions_prompt = [
     "B: Waste less water\n"
     "C: Restore tropical forests\n",
     " What does the governments climate change watchdog recommend as a "
-    "green substitute for air conditioning??\n\n"
+    "green substitute for air conditioning?\n\n"
     "A: Opening windows to help create a through draughtn \n"
     "B: Installing special blinds on glass and steel structures\n"
     "C: Allowing ivy to grow\n",
@@ -155,7 +155,7 @@ questions_prompt = [
     "C: Avoiding the depletion of natural resources in order to maintain "
     "ecological balance.\n",
     " What is NOT a sustainable practice?\n\n"
-    "A: buying"
+    "A: buying\n"
     "B: recycling\n"
     "C: reusing.\n",
     " Which of the following increases demand that pushes the "
@@ -164,14 +164,14 @@ questions_prompt = [
     "B: population growth\n"
     "C: fossil fuels.\n",
     " Water resources are uniformly distributed around the world.\n\n"
-    "A: True"
+    "A: True\n"
     "B: False\n"
     "C: Sometimes.\n",
-    "Most energy used by humans comes from:\n\n"
+    " Most energy used by humans comes from:\n\n"
     "A: China\n"
     "B: Brazil\n"
     "C: Sun\n",
-    "What is one of the areas of the ocean called "
+    " What is one of the areas of the ocean called "
     "where marine debris (garbage) has combined due to ocean currents?\n\n"
     "A: The Great Pacific Garbage Patch\n"
     "B: The Great Pacific Pristine Pool\n"
@@ -180,28 +180,28 @@ questions_prompt = [
     "A: nonbiodegradable\n"
     "B: Healthy\n"
     "C: biodegradable\n",
-    "23: What is the definition of climate?\n\n"
+    " What is the definition of climate?\n\n"
     "A: The condition of the air around the Earth\n"
     "B: The pattern of weather over time\n"
     "C: The rainforest\n",
-    "What are some possible solutions to climate change\n\n"
+    " What are some possible solutions to climate change\n\n"
     "A: Use less energy\n"
     "B: Plant trees and other plants\n"
     "C: All of the above\n",
-    "How many pieces of litter are estimated to enter the sea on "
+    " How many pieces of litter are estimated to enter the sea on "
     "a daily basis?\n\n"
     "A: 8 million\n"
     "B: 2 million\n"
     "C: 1million\n",
-    "Which type of farming is sustainable\n\n"
+    " Which type of farming is sustainable\n\n"
     "A: Plantations\n"
     "B: shifting cultivation\n"
     "C: cattle ranching\n",
-    "Eco-toirism should lead to"
+    " Eco-toirism should lead to\n"
     "A: Environmental tourism\n"
     "B: Sustainability\n"
     "C: Sustainable tourism\n",
-    "Scientists are looking for new ways of generating hydrogen "
+    " Scientists are looking for new ways of generating hydrogen "
     "from most renewable energy\n"
     "A: solar energy\n"
     "B: sunlight\n"
@@ -249,12 +249,12 @@ def user_selection():
     function to accet user choice of answers
     """
     option = input("Please choose an option:- (A/B/C)\n")
-    choice_lc = option.lower()
-    if choice_lc not in ['a', 'b', 'c']:
+    choice = option.lower()
+    if choice not in ['a', 'b', 'c']:
         print('invalid_choice\n\n')
         return user_selection()
 
-    return choice_lc
+    return choice
 
 def run_test(questions):
 
@@ -299,14 +299,21 @@ def run_test(questions):
     print("Thank you for completing the quiz " + name_entry + "\n\n")
     print("You got", score, "out of 10\n\n")
     time.sleep(2)
-    print("Now updating the score board...................\n")
-    time.sleep(3)
+    print("Now updating the score board.............................................\n")
+    time.sleep(2)
     scores = SHEET.worksheet('scores')
     scores.append_row(values=[name_entry, score, dt_string])
     scores.sort((2, 'des'), (4, 'asc'),)
     print(GAMEOVER)
-    time.sleep(5)
-    start_game()
+    time.sleep(1)
+    print("Press p to replay the quiz\n")
+    print("Press q to Quit the quiz\n")
+    time.sleep(2)
+    second_menu()
+   
+
+
+    # start_game()
 
 
 def quiz_instructions():
@@ -317,8 +324,8 @@ def quiz_instructions():
     time.sleep(2)
     print(INTRO_MESSAGE)
     time.sleep(4)
-    print("1. All questions are based on sustainability")
-    print("2. All questions are multiple choice based")
+    print("1. All questions are based on sustainability & climate change")
+    print("2. All 10 questions are multiple choice based")
     print("3. Choose either a,b or c for correct answer")
     print("4. You will be told if your answer is correct or incorrect")
     print("5. Score increase is based on correct answers only")
@@ -326,7 +333,27 @@ def quiz_instructions():
     print("7. Score is added to the scoreboard at the end of quiz\n\n")
 
     time.sleep(4)
-    print("Now lets roll..........\n\n")
+    print("Now lets roll..........................................\n\n")
+
+
+def second_menu():
+    """
+    Function that gives users ability to navigate around the quiz
+    """
+    press_key = input().lower()
+    if press_key == "p":
+        time.sleep(2)
+        print("Good to have you onboard. Now starting the quiz\n\n")
+        time.sleep(2)
+        quiz_instructions()
+        run_test(questions)
+
+    if press_key == "q":
+        time.sleep(2)
+        print("Goodbye, hope to see you soon\n\n")
+        time.sleep(2)
+        start_game()
+
 
 
 def display_menu():
@@ -349,7 +376,12 @@ C: Quit\n").lower())
         print(tabulate(data[0:11], headers='firstrow',
         tablefmt='fancy_grid'))
         time.sleep(4)
-        display_menu()
+        # display_menu()
+        print("Press P to proceed to Quiz\n")
+        print("Press Q to quit")
+        second_menu()
+        
+
   
     if menu == "c":
         print("Goodbye Hope to see you soon.........\n")
