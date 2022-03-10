@@ -3,8 +3,8 @@
 """
 import time  # Module required to add a pause as needed
 from datetime import datetime
-import random
 from tabulate import tabulate
+import random
 import gspread
 from google.oauth2.service_account import Credentials
 from constants import (LOGO, INTRO_MESSAGE, GAMEOVER)
@@ -309,6 +309,11 @@ def second_menu():
         print("Goodbye, hope to see you soon\n\n")
         time.sleep(2)
         start_game()
+    else:
+        print("Invalid choice")
+        time.sleep(1)
+        print("Press either P or Q!\n")
+        second_menu()
 
 
 def display_menu():
