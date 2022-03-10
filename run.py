@@ -8,7 +8,6 @@ import random
 import gspread
 from google.oauth2.service_account import Credentials
 from constants import (LOGO, INTRO_MESSAGE, GAMEOVER)
-from question import Question
 
 
 SCOPE = [
@@ -43,6 +42,15 @@ def user_name():
         return user_name()
     else:
         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
+
+
+class Question:
+    """
+    creates a question class
+    """
+    def __init__(self, prompt, answer):
+        self.prompt = prompt
+        self.answer = answer
 
 
 questions_prompt = [
