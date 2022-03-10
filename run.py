@@ -3,8 +3,8 @@
 """
 import time  # Module required to add a pause as needed
 from datetime import datetime
-from tabulate import tabulate
 import random
+from tabulate import tabulate
 import gspread
 from google.oauth2.service_account import Credentials
 from constants import (LOGO, INTRO_MESSAGE, GAMEOVER)
@@ -27,43 +27,7 @@ scores = SHEET.worksheet('scores')
 data = scores.get_all_values()
 
 now = datetime.now()
-# dd/mm/YY H:M
 dt_string = now.strftime("%d/%m/%Y %H:%M")
-
-
-
-
-
-
-# print(INTRO_MESSAGE)
-# time.sleep(1)
-
-
-# menu_prompt = [
-#     "What will you like to do\n"
-#     "A: PLAY\n"
-#     "B: QUIT"
-# ]
-# menus = [
-#     Menu(menu_prompt[0], "a")
-# ]
-
-
-# def display_menu(menus):
-#     """
-#     function to display the menuS
-#     """
-#     for menu in menus:
-#         print(menu.prompt)
-#         if user_selection() == menu.choice:
-#             # run_test(questions)
-#             print("Good to have you on board\n\n")
-#             time.sleep(2)
-#         else:
-#             print('ok')
-
-
-
 
 
 def user_name():
@@ -256,6 +220,7 @@ def user_selection():
 
     return choice
 
+
 def run_test(questions):
 
     """
@@ -268,38 +233,33 @@ def run_test(questions):
     if len(name_entry) < 3:
         print("Enter at least 3 letters")
         name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-    
     if name_entry.isdigit():
         print("Only letters allowed!")
         name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-    
     else:
-        print(f"\nWelcome to the Sustainability Quiz {name_entry}\n\n")  
+        print(f"\nWelcome to the Sustainability Quiz {name_entry}\n\n")
         time.sleep(2)
-    
-    # for question in questions:
     sampled_list = random.sample(questions, 10)
     for sample in sampled_list:
-        # print(question.prompt)
+
         print(sample.prompt)
-        # if user_selection() == question.answer:
+
         if user_selection() == sample.answer:
             score += 1
             print("Weldone\n\n")
             time.sleep(1)
-            # print(question.feedback)
+
             time.sleep(2)
 
         else:
             print("Incorrect\n\n")
             time.sleep(1)
-            # print(question.feedback)
+
             time.sleep(2)
-        
     print("Thank you for completing the quiz " + name_entry + "\n\n")
     print("You got", score, "out of 10\n\n")
     time.sleep(2)
-    print("Now updating the score board.............................................\n")
+    print("Now updating the score board...................................\n")
     time.sleep(2)
     scores = SHEET.worksheet('scores')
     scores.append_row(values=[name_entry, score, dt_string])
@@ -310,10 +270,6 @@ def run_test(questions):
     print("Press q to Quit the quiz\n")
     time.sleep(2)
     second_menu()
-   
-
-
-    # start_game()
 
 
 def quiz_instructions():
@@ -355,7 +311,6 @@ def second_menu():
         start_game()
 
 
-
 def display_menu():
     """
     function to display menu to choose from beginning of quiz
@@ -368,35 +323,22 @@ C: Quit\n").lower())
         time.sleep(1)
         quiz_instructions()
         run_test(questions)
-         
     if menu == "b":
         print("Just a moment to process the scoreboard.....")
         time.sleep(2)
-        # print(tabulate(data, headers='firstrow', showindex='always'))
-        print(tabulate(data[0:11], headers='firstrow',
-        tablefmt='fancy_grid'))
+
+        print(tabulate(data[0:11], headers='firstrow', tablefmt='fancy_grid'))
         time.sleep(4)
-        # display_menu()
         print("Press P to proceed to Quiz\n")
         print("Press Q to quit")
         second_menu()
-        
-
-  
     if menu == "c":
         print("Goodbye Hope to see you soon.........\n")
         time.sleep(2)
         start_game()
-    
     if menu not in ['a', 'b', 'c']:
         print('Invalid_choice! Choose either a,b or c\n\n')
         return display_menu()
-
-
-
-
-
-
 
 
 def start_game():
@@ -406,29 +348,8 @@ def start_game():
 
     print(LOGO)
     time.sleep(2)
-    
+
     display_menu()
 
 
 start_game()
-
-
-
-# def run_test(questions):
-
-#     """
-#     function display question and check if answer is correct to provide
-#     feedback
-#     """
-#     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-
-#     if len(name_entry) < 3:
-#          print("Enter at least 3 letters")
-#     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-    
-#     if name_entry.isdigit():
-#         print("Only letters allowed!")
-#     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-    
-#     else:
-#         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
