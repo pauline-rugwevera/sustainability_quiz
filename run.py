@@ -29,19 +29,19 @@ now = datetime.now()
 dt_string = now.strftime("%d/%m/%Y %H:%M")
 
 
-def user_name():
-    """
-    Function to accept and validate user name
-    """
-    name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-    if len(name_entry) < 3:
-        print("Enter at least 3 letters")
-        return user_name()
-    elif name_entry.isdigit():
-        print("Only letters allowed!")
-        return user_name()
-    else:
-        print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
+# def user_name():
+#     """
+#     Function to accept and validate user name
+#     """
+#     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
+#     if len(name_entry) < 3:
+#         print("Enter at least 3 letters")
+#         return user_name()
+#     elif name_entry.isdigit():
+#         print("Enter at least 3 letters!")
+#         return user_name()
+#     else:
+#         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
 
 
 class Question:
@@ -235,20 +235,17 @@ def run_test(questions):
     function display question and check if answer is correct to provide
     feedback
     """
-    name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-    score = 0
+    while True:
+        name = input("Please enter your name: -(Minimum 3 characters)\n")
+        if name.isalpha():
+            break
+        print("Please enter characters A-Z only\n")
+    print(f"\nWelcome to the Sustainability Quiz {name}\n\n")
+    time.sleep(2)
 
-    if len(name_entry) < 3:
-        print("Enter at least 3 letters")
-        name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-    if name_entry.isdigit():
-        print("Only letters allowed!")
-        name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-    else:
-        print(f"\nWelcome to the Sustainability Quiz {name_entry}\n\n")
-        time.sleep(2)
-    sampled_list = random.sample(questions, 10)
-    for sample in sampled_list:
+    new_list = random.sample(questions, 10)
+    score = 0
+    for sample in new_list:
 
         print(sample.prompt)
 
@@ -264,13 +261,13 @@ def run_test(questions):
             time.sleep(1)
 
             time.sleep(2)
-    print("Thank you for completing the quiz " + name_entry + "\n\n")
+    print("Thank you for completing the quiz " + name + "\n\n")
     print("You got", score, "out of 10\n\n")
     time.sleep(2)
     print("Now updating the score board...................................\n")
     time.sleep(2)
     scores = SHEET.worksheet('scores')
-    scores.append_row(values=[name_entry, score, dt_string])
+    scores.append_row(values=[name, score, dt_string])
     scores.sort((2, 'des'), (4, 'asc'),)
     print(GAMEOVER)
     time.sleep(1)
@@ -329,8 +326,7 @@ def display_menu():
     function to display menu to choose from beginning of quiz
     """
     print("What do you want to do?\n\n")
-    menu = (input("A: Play Quiz\nB: Show Top Ten scores\n\
-C: Quit\n").lower())
+    menu = (input("A: Play Quiz\nB: Show Top Ten scores\n").lower())
 
     if menu == "a":
         time.sleep(1)
@@ -345,11 +341,7 @@ C: Quit\n").lower())
         print("Press P to proceed to Quiz\n")
         print("Press Q to quit")
         second_menu()
-    if menu == "c":
-        print("Goodbye Hope to see you soon.........\n")
-        time.sleep(2)
-        start_game()
-    if menu not in ['a', 'b', 'c']:
+    if menu not in ['a', 'b']:
         print('Invalid_choice! Choose either a,b or c\n\n')
         return display_menu()
 
