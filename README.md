@@ -19,4 +19,24 @@ Are you walking the talk when it comes to sustainability? The sustainability qui
 ### Returning user
 - Users will be looking to see if any additional functionality has been added
 
+# Features
+
+# Testing
+
+# Deployment
+
+My game was deployed via Heroku as follows:
+- Sign in to Heroku
+- Select New and Create New App
+- For app name, I put sustainability-quiz-app and chose Europe for region then create app
+- Select the created app from the dashboard and navigate to Settings
+- Scroll down to config vars and click reveal config vars, I set two Config Vars, one is CREDS.json file, and the other is to set the PORT to 8000
+- Scroll down and buildpack button. Select python as the first buildpack and node.js as the second
+- Navigate to Deploy tab at the top of the page
+- For the deployment method, select Github. If access hasn't already been configured, do this from Account settings > Applications > Third-party Services.
+- Enter the repository name, I put sustainability-quiz-app and selected search then click connect
+- Confirm the correct branch and choose either to automatically or manually deploy your app. In this case I manually deployed so I clicked manual deploy.
+- The build process will begin and a message "Your app was successfully deployed" will appear and a link to the live site
+
+
 
