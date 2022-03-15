@@ -38,5 +38,27 @@ My game was deployed via Heroku as follows:
 - Confirm the correct branch and choose either to automatically or manually deploy your app. In this case I manually deployed so I clicked manual deploy.
 - The build process will begin and a message "Your app was successfully deployed" will appear and a link to the live site
 
+# Credit
+## Content
+The following sites were used for the quiz questions:
+
+- https://assets.new.siemens.com/siemens/assets/api/uuid:51501a0c-4856-4f7e-a84f-d313b9781067/5-2-sustainability-quiz-answers.pdf
+
+- https://www.theguardian.com/global/2017/jul/30/lucy-siegle-great-green-quiz
+
+- https://www.yeovalley.co.uk/sustainability-quiz/
+
+- https://mcqslearn.com/o-level/environmental-management/environmental-sustainability-mcqs.php
 
 
+## Code
+The time this python module came by, I was still wrapping around my mind with Javascript and jumping from it to python gave me some hard time. I went through various blogs and tutorials just to understand a few concepts before embarking on this project. Most stuff was too complicated for a python newbie however there is my favourite web development and python youtuber who made me understand what I wanted to do in a matter of a few minutes, thanks to[Giraffe Academy](https://www.youtube.com/watch?v=SgQhwtIoQ7o&list=LL&index=6&t=160s) with Mike Dane. 
+
+The code to validate the user input name is from [Stackoverflow](https://stackoverflow.com/questions/36432954/python-validation-to-ensure-input-only-contains-characters-a-z). At first I used the if else statements however the second time a user entered an invalid input it would pass through which was not ideal.
+
+To understand the gspread, first had to go through Code Institute's love sandwiches tutorial twice then went through [gspread](https://docs.gspread.org/en/latest/) documentation to get a full grasp.
+
+## Acknowledgements
+- Love sandwiches tutorial
+- If there is one thing Code Institute has done best for its students, is its slack community
+- My mentor
