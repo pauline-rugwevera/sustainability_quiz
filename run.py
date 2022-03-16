@@ -272,17 +272,7 @@ def run_test(questions):
     print("Press P to replay the quiz\n")
     print("Click the RUN PROGRAM button to Quit the quiz\n")
     time.sleep(2)
-    press_key = input().lower()
-    if press_key == "p":
-        time.sleep(2)
-        print("Good to have you onboard. Now starting the quiz\n\n")
-        time.sleep(2)
-        quiz_instructions()
-        run_test(questions)
-    else:
-        print("Invalid input!")
-        time.sleep(1)
-        print("Press either P or Click the Run Program button")
+    gameover_menu()
 
 
 def quiz_instructions():
@@ -327,6 +317,25 @@ def second_menu():
         time.sleep(1)
         print("Press either P or Q!\n")
         second_menu()
+
+
+def gameover_menu():
+    """
+    function to display menu to choose when the quiz game is over
+    """
+
+    press_key = input().lower()
+    if press_key == "p":
+        time.sleep(2)
+        print("Good to have you onboard. Now starting the quiz\n\n")
+        time.sleep(2)
+        quiz_instructions()
+        run_test(questions)
+    else:
+        print("Invalid input!")
+        time.sleep(1)
+        print("Press either P or Click the Run Program button")
+        gameover_menu()
 
 
 def display_menu():
