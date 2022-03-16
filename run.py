@@ -240,7 +240,7 @@ def run_test(questions):
         name = input(" Please enter your name below:\n")
         if name.isalpha():
             break
-        print(" Please enter characters A-Z only\n")
+        print("Please enter characters A-Z only\n")
     print(f"\n Welcome to the Sustainability Quiz {name}\n\n")
     time.sleep(2)
 
@@ -272,7 +272,17 @@ def run_test(questions):
     print("Press P to replay the quiz\n")
     print("Click the RUN PROGRAM button to Quit the quiz\n")
     time.sleep(2)
-    second_menu()
+    press_key = input().lower()
+    if press_key == "p":
+        time.sleep(2)
+        print("Good to have you onboard. Now starting the quiz\n\n")
+        time.sleep(2)
+        quiz_instructions()
+        run_test(questions)
+    else:
+        print("Invalid input!")
+        time.sleep(1)
+        print("Press either P or Click the Run Program button")
 
 
 def quiz_instructions():
@@ -302,7 +312,7 @@ def second_menu():
     press_key = input().lower()
     if press_key == "p":
         time.sleep(2)
-        print("Good to have you onboard. Now starting the quiz\n\n")
+        print("Good to have you onboard again. Now starting the quiz\n\n")
         time.sleep(2)
         quiz_instructions()
         run_test(questions)
