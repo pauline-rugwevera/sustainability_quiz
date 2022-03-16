@@ -1,7 +1,7 @@
 """
  # Module required to add a pause as needed
 """
-import time  # Module required to add a pause as needed
+import time
 from datetime import datetime
 from tabulate import tabulate
 import random
@@ -218,7 +218,7 @@ questions = [
 
 def user_selection():
     """
-    function to accet user choice of answers
+    function to accept user choice of answers
     """
     option = input("Please choose an option:- (A/B/C)\n")
     choice = option.lower()
@@ -232,15 +232,16 @@ def user_selection():
 def run_test(questions):
 
     """
-    function display question and check if answer is correct to provide
+    function to get user name, display question and check if
+    answer is correct to provide
     feedback
     """
     while True:
-        name = input("Please enter your name: -(Minimum 3 characters)\n")
+        name = input(" Please enter your name below:\n")
         if name.isalpha():
             break
-        print("Please enter characters A-Z only\n")
-    print(f"\nWelcome to the Sustainability Quiz {name}\n\n")
+        print(" Please enter characters A-Z only\n")
+    print(f"\n Welcome to the Sustainability Quiz {name}\n\n")
     time.sleep(2)
 
     new_list = random.sample(questions, 10)
@@ -254,13 +255,10 @@ def run_test(questions):
             print("Weldone\n\n")
             time.sleep(1)
 
-            time.sleep(2)
-
         else:
             print("Incorrect\n\n")
             time.sleep(1)
 
-            time.sleep(2)
     print("Thank you for completing the quiz " + name + "\n\n")
     print("You got", score, "out of 10\n\n")
     time.sleep(2)
@@ -271,8 +269,8 @@ def run_test(questions):
     scores.sort((2, 'des'), (4, 'asc'),)
     print(GAMEOVER)
     time.sleep(1)
-    print("Press p to replay the quiz\n")
-    print("Press q to Quit the quiz\n")
+    print("Press P to replay the quiz\n")
+    print("Click the RUN PROGRAM button to Quit the quiz\n")
     time.sleep(2)
     second_menu()
 
