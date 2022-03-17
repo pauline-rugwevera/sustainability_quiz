@@ -243,7 +243,6 @@ def run_test(questions):
         print("Please enter characters A-Z only\n")
     print(f"\n Welcome to the Sustainability Quiz {name}\n\n")
     time.sleep(2)
-
     new_list = random.sample(questions, 10)
     score = 0
     for sample in new_list:
@@ -253,11 +252,11 @@ def run_test(questions):
         if user_selection() == sample.answer:
             score += 1
             print("Weldone\n\n")
-            time.sleep(1)
+            time.sleep(2)
 
         else:
             print("Incorrect\n\n")
-            time.sleep(1)
+            time.sleep(2)
 
     print("Thank you for completing the quiz " + name + "\n\n")
     print("You got", score, "out of 10\n\n")
