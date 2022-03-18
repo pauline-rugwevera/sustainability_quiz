@@ -1,5 +1,5 @@
 # SUSTAINABILITY QUIZ
-Are you walking the talk when it comes to sustainability? The sustainability quiz is a game built using python to test the users their understanding of what sustainability is all about.
+Are you walking the talk when it comes to sustainability? Sustainability means meeting our own needs without compromising the ability of future generations to meet their own needs. In addition to natural resources, we also need social and economic resources. Sustainability is not just environmentalism. Embedded in most definitions of sustainability we also find concerns for social equity and economic development. This Sustainability quiz is a game built using python to further test the users their understanding of what sustainability is all about.
 
 [Link to live website](https://sustainability-quiz-app.herokuapp.com/)
 # UX
@@ -20,6 +20,38 @@ Are you walking the talk when it comes to sustainability? The sustainability qui
 - Users will be looking to see if any additional functionality has been added
 
 # Features
+### Welcome screen
+As the quiz loads, users are first welcomed by the welcoming logo that tells the type of questions they are to play and asked what they want to do.
+
+![logo](assets/images/Screenshot_93.png)
+
+### Instructions screen
+Assuming the user chooses the Play option, this takes them first to the introductory message followed by the rules of the game. They are then asked to enter their name.
+
+![instructions](assets/images/Screenshot_94.png)
+
+### Question screen
+User is immediately welcomed by their name and the first question appears. The questions are in multiple choice form, each question is presented to the user with 3 choices to choose from. A weldone feedback message appears soon after a correct answer is chosen before a new question is presented. An incorrect feedback message appears soon after a wrong answer is chosen before a new question is presented.
+
+![question screen](assets/images/Screenshot_96.png)
+
+### End of quiz screen
+A thank you message to the user is displayed with their name. Their score is also displayed and the scoreboard is updated before the gameover logo is displayed. User is given choices to take, either replaying the quiz, showing the scoreboard or quit the quiz
+
+![end of quiz](assets/images/Screenshot_97.png)
+
+If the user chooses to replay the quiz by pressing P, they are taken to the instruction screen that will take them to the questions screen.
+
+If the user chooses to click the Run program button, they are taken to the welcome screen.
+
+If the user chooses to view the scoreboard by pressing S, they are taken to the scoreboard screen which is show below.
+
+### Show top 10 Scores/View scoreboard screen
+This is the second choice shown to the user at the beginning of the game or at the welcome screen. It is also the screen that shows when the user press S on the end of quiz screen. It shows the sustainability quiz top ten scores. The name of the player, the score, and the date they played.
+
+
+
+
 
 # Testing
 
@@ -49,6 +81,8 @@ The following sites were used for the quiz questions:
 - https://www.yeovalley.co.uk/sustainability-quiz/
 
 - https://mcqslearn.com/o-level/environmental-management/environmental-sustainability-mcqs.php
+
+- https://www.mcgill.ca/sustainability/files/sustainability/what-is-sustainability.pdf
 
 
 ## Code
