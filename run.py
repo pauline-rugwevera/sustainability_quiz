@@ -288,7 +288,7 @@ def second_menu():
     press_key = input().lower()
     if press_key == "p":
         time.sleep(2)
-        print("Good to have you onboard again. Now starting the quiz\n\n")
+        print("Good to have you onboard. Now starting the quiz\n\n")
         time.sleep(2)
         quiz_instructions()
         run_test(questions)
@@ -321,7 +321,8 @@ def gameover_menu():
     if press_key == "s":
         time.sleep(2)
         print("Just a moment to process the scoreboard.....")
-        print(tabulate(data[0:11], headers='firstrow', tablefmt='fancy_grid'))
+        data = scores.get_all_values()
+        print(tabulate(data, headers='firstrow', tablefmt='fancy_grid'))
         time.sleep(4)
         print("Press P to proceed to Quiz\n")
         print("Press Q to quit")
@@ -347,7 +348,6 @@ def display_menu():
     if menu == "b":
         print("Just a moment to process the scoreboard.....")
         time.sleep(2)
-
         print(tabulate(data[0:11], headers='firstrow', tablefmt='fancy_grid'))
         time.sleep(4)
         print("Press P to proceed to Quiz\n")
