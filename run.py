@@ -29,21 +29,6 @@ now = datetime.now()
 dt_string = now.strftime("%d/%m/%Y %H:%M")
 
 
-# def user_name():
-#     """
-#     Function to accept and validate user name
-#     """
-#     name_entry = input("Please enter your name: -(Minimum 3 characters)\n")
-#     if len(name_entry) < 3:
-#         print("Enter at least 3 letters")
-#         return user_name()
-#     elif name_entry.isdigit():
-#         print("Enter at least 3 letters!")
-#         return user_name()
-#     else:
-#         print(f"\nWelcome to the Sustainability Quiz {name_entry}\n")
-
-
 class Question:
     """
     creates a question class
