@@ -251,9 +251,11 @@ def run_test(questions):
     scores = SHEET.worksheet('scores')
     scores.append_row(values=[name, score, dt_string])
     scores.sort((2, 'des'), (4, 'asc'),)
+    time.sleep(1)
     print(GAMEOVER)
     time.sleep(1)
     print("Press P to replay the quiz\n")
+    print("Press S to view the scoreboard\n")
     print("Click the RUN PROGRAM button to Quit the quiz\n")
     time.sleep(2)
     gameover_menu()
@@ -296,10 +298,11 @@ def second_menu():
         print("Goodbye, hope to see you soon\n\n")
         time.sleep(2)
         start_game()
+
     else:
         print("Invalid choice")
         time.sleep(1)
-        print("Press either P or Q!\n")
+        print("Press either P, Q or S!\n")
         second_menu()
 
 
@@ -315,10 +318,18 @@ def gameover_menu():
         time.sleep(2)
         quiz_instructions()
         run_test(questions)
+    if press_key == "s":
+        time.sleep(2)
+        print("Just a moment to process the scoreboard.....")
+        print(tabulate(data[0:11], headers='firstrow', tablefmt='fancy_grid'))
+        time.sleep(4)
+        print("Press P to proceed to Quiz\n")
+        print("Press Q to quit")
+        second_menu()
     else:
         print("Invalid input!")
         time.sleep(1)
-        print("Press either P or Click the Run Program button")
+        print("Press either P, S or Click the Run Program button")
         gameover_menu()
 
 
