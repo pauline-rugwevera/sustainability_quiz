@@ -19,6 +19,16 @@ Are you walking the talk when it comes to sustainability? Sustainability means m
 ### Returning user
 - Users will be looking to see if any additional functionality has been added
 
+# Logic flow
+### Game start
+![start](assets/images/Screenshot_99.png)
+
+### Play Chart
+![play](assets/images/Screenshot_101.png)
+
+### Scoreboard
+![scoreboard](assets/images/Screenshot_102.png)
+
 # Features
 ### Welcome screen
 As the quiz loads, users are first welcomed by the welcoming logo that tells the type of questions they are to play and asked what they want to do.
@@ -47,7 +57,9 @@ If the user chooses to click the Run program button, they are taken to the welco
 If the user chooses to view the scoreboard by pressing S, they are taken to the scoreboard screen which is show below.
 
 ### Show top 10 Scores/View scoreboard screen
-This is the second choice shown to the user at the beginning of the game or at the welcome screen. It is also the screen that shows when the user press S on the end of quiz screen. It shows the sustainability quiz top ten scores. The name of the player, the score, and the date they played.
+This is the second choice shown to the user at the beginning of the game or at the welcome screen. It is also the screen that shows when the user press S on the end of quiz screen. It shows the sustainability quiz top ten scores. The name of the player, the score, and the date they played. After the user has viewed the scored, they have the choice to proceed to play the quiz or quit by pressing P and Q respectively. P takes them to the quiz instructions then to the quiz, Q takes them to the welcome screen.
+
+![topscores](assets/images/Screenshot_98.png)
 
 
 
