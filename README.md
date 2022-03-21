@@ -61,6 +61,13 @@ This is the second choice shown to the user at the beginning of the game or at t
 
 ![topscores](assets/images/Screenshot_98.png)
 
+## Technology used
+- Python - the language in which the game is written
+- Github - version control
+- Heroku - platform which the game was deployed
+- Lucid app - flow charts
+- [ASCII art](http://patorjk.com/software/taag/#p=testall&h=1&f=Rounded&t=gameover)- to create gameover and logo art image
+
 
 
 
@@ -98,7 +105,7 @@ The following sites were used for the quiz questions:
 
 
 ## Code
-The time this python module came by, I was still wrapping around my mind with Javascript and jumping from it to python gave me some hard time. I went through various blogs and tutorials just to understand a few concepts before embarking on this project. Most stuff was too complicated for a python newbie however there is my favourite web development and python youtuber who made me understand what I wanted to do in a matter of a few minutes, thanks to[Giraffe Academy](https://www.youtube.com/watch?v=SgQhwtIoQ7o&list=LL&index=6&t=160s) with Mike Dane. 
+The time this python module came by, I was still wrapping around my mind with Javascript and jumping from it to python gave me some hard time. I went through various blogs and tutorials just to understand a few concepts before embarking on this project. Most stuff was too complicated for a python newbie however there is my favourite web development and python youtuber who made me understand what I wanted to do in a matter of a few minutes, thanks to [Giraffe Academy](https://www.youtube.com/watch?v=SgQhwtIoQ7o&list=LL&index=6&t=160s) with Mike Dane. 
 
 The code to validate the user input name is from [Stackoverflow](https://stackoverflow.com/questions/36432954/python-validation-to-ensure-input-only-contains-characters-a-z). At first I used the if else statements however the second time a user entered an invalid input it would pass through which was not ideal.
 

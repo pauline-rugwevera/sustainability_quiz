@@ -355,7 +355,7 @@ def display_menu():
         print("Press Q to quit")
         second_menu()
     if menu not in ['a', 'b']:
-        print('Invalid_choice! Choose either a,b or c\n\n')
+        print('Invalid_choice! Choose either A or B\n\n')
         return display_menu()
 
 
