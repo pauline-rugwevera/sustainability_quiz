@@ -68,11 +68,33 @@ This is the second choice shown to the user at the beginning of the game or at t
 - Lucid app - flow charts
 - [ASCII art](http://patorjk.com/software/taag/#p=testall&h=1&f=Rounded&t=gameover)- to create gameover and logo art image
 
-
-
-
-
 # Testing
+Firstly conntiuos testing during app development was implemented. Writing individual functions and testing them using print statements to ensure intended results were obtained. I tested from when the game begins, where the menu is displayed, testing if correct inputs were being entered. In this case if the input is not valid the user is asked again to put a valid input before they can continue. 
+
+When the user views the scoreboard, I tested to ensure only the valid keypresses are accepted for users to either play or quit the game. Same applies to questions, I tested to ensure questions are displayed randomly, correct feedback given depending on answer, also valid answers to be provide else user will be asked to enter a valid input before they can continue.
+
+When the game ends, user is given choices to replay, view scoreboard or quit by pressing keys 'p', 's'. and click run program button respectively. Every other keypress will be an invalid input. All this was tested inorder to get intended results. Finally I was checking the code so often with the [PEP8 checker](http://www.pep8online.com/) as I was still wrapping my head around python. I wanted to make sure my code was fine before adding more and more functionality.
+
+### Bugs
+- In trying to validate the user name, I first used if statements which would run only once, the next input a user makes would then be accepted as a valid user name which is something I did not want. I wanted only letters from 'a' to 'z' for the name to be valid. To correct this, a while loop was used instead.
+- After deploying to heroku, I had a situation whereby if a user plays the game and gets a very high, when I choose to view the scoreboard when the game ends the score would not appear at the scoreboard unless only the whole app is refreshed. To correct this, only one line of code was needed which I did not utilise earlier. I had to use the get_all_values() gspread method.
+
+### Validator testing
+- run.py
+
+![run_py](assets/images/Screenshot_103.png)
+
+- constants.py
+
+
+![constants](assets/images/Screenshot_104.png)
+
+The python file has no errors reported, however the constants file has one trailing white space caused by the ASCII art, something that adds some wow effect to the game.
+
+
+
+
+
 
 # Deployment
 
