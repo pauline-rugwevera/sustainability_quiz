@@ -321,6 +321,7 @@ def gameover_menu():
     if press_key == "s":
         time.sleep(2)
         print("Just a moment to process the scoreboard.....")
+        time.sleep(2)
         data = scores.get_all_values()
         print(tabulate(data[0:11], headers='firstrow', tablefmt='fancy_grid'))
         # print(tabulate(data, headers='firstrow', tablefmt='fancy_grid'))
@@ -355,7 +356,7 @@ def display_menu():
         print("Press Q to quit")
         second_menu()
     if menu not in ['a', 'b']:
-        print('Invalid_choice! Choose either A or B\n\n')
+        print('Invalid choice! Choose either A or B\n\n')
         return display_menu()
 
 
