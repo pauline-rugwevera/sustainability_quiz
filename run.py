@@ -207,6 +207,7 @@ def user_selection():
     """
     option = input("Please choose an option:- (A/B/C)\n")
     choice = option.lower()
+    choice = option.strip()
     if choice not in ['a', 'b', 'c']:
         print('invalid_choice\n\n')
         return user_selection()
@@ -302,7 +303,7 @@ def second_menu():
     else:
         print("Invalid choice")
         time.sleep(1)
-        print("Press either P, Q or S!\n")
+        print("Press either P or Q!\n")
         second_menu()
 
 
@@ -320,11 +321,10 @@ def gameover_menu():
         run_test(questions)
     if press_key == "s":
         time.sleep(2)
-        print("Just a moment to process the scoreboard.....")
+        print("Just a moment to process the scoreboard............")
         time.sleep(2)
         data = scores.get_all_values()
         print(tabulate(data[0:11], headers='firstrow', tablefmt='fancy_grid'))
-        # print(tabulate(data, headers='firstrow', tablefmt='fancy_grid'))
         time.sleep(4)
         print("Press P to proceed to Quiz\n")
         print("Press Q to quit")
@@ -348,7 +348,7 @@ def display_menu():
         quiz_instructions()
         run_test(questions)
     if menu == "b":
-        print("Just a moment to process the scoreboard.....")
+        print("Just a moment please to process the scoreboard.....")
         time.sleep(2)
         print(tabulate(data[0:11], headers='firstrow', tablefmt='fancy_grid'))
         time.sleep(4)
@@ -362,7 +362,7 @@ def display_menu():
 
 def start_game():
     """
-    function to
+    function to begin the quiz game
     """
 
     print(LOGO)
