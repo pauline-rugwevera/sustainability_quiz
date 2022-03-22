@@ -1,9 +1,11 @@
 # SUSTAINABILITY QUIZ
 Are you walking the talk when it comes to sustainability? Sustainability means meeting our own needs without compromising the ability of future generations to meet their own needs. In addition to natural resources, we also need social and economic resources. Sustainability is not just environmentalism. Embedded in most definitions of sustainability we also find concerns for social equity and economic development. This Sustainability quiz is a game built using python to further test the users their understanding of what sustainability is all about.
 
+![logo](assets/images/Screenshot_93.png)
+
 [Link to live website](https://sustainability-quiz-app.herokuapp.com/)
 # UX
-* The sustainability quiz is a quiz game intended for anyone who understands or willing to understand how things like global warming, enviromental issues are posing concerns to the current and future generations and how exactly businesses have to respond to address these issues so they remain sustainable. I tried to make sure the questions are short, precise and funny for the users.
+* The sustainability quiz is a game intended for anyone who understands or willing to understand how things like global warming, enviromental issues are posing concerns to the current and future generations and how exactly businesses have to respond to address these issues so they remain sustainable. I tried to make sure the questions are short, precise and funny for the users.
 
 ## Site Goals
 - To educate users about sustainability through a funny quiz
@@ -31,7 +33,7 @@ Are you walking the talk when it comes to sustainability? Sustainability means m
 
 # Features
 ### Welcome screen
-As the quiz loads, users are first welcomed by the welcoming logo that tells the type of questions they are to play and asked what they want to do.
+As the quiz loads, users are first welcomed by the welcoming logo that tells the type of quiz and questions they are to play and asked what they want to do.
 
 ![logo](assets/images/Screenshot_93.png)
 
@@ -46,7 +48,7 @@ User is immediately welcomed by their name and the first question appears. The q
 ![question screen](assets/images/Screenshot_96.png)
 
 ### End of quiz screen
-A thank you message to the user is displayed with their name. Their score is also displayed and the scoreboard is updated before the gameover logo is displayed. User is given choices to take, either replaying the quiz, showing the scoreboard or quit the quiz
+A thank you message to the user is displayed with their name. Their score is also displayed and the scoreboard is updated before the gameover logo is displayed. User is given choices to take, either replaying the quiz, showing the scoreboard or quit the quiz.
 
 ![end of quiz](assets/images/Screenshot_97.png)
 
@@ -54,7 +56,7 @@ If the user chooses to replay the quiz by pressing P, they are taken to the inst
 
 If the user chooses to click the Run program button, they are taken to the welcome screen.
 
-If the user chooses to view the scoreboard by pressing S, they are taken to the scoreboard screen which is show below.
+If the user chooses to view the scoreboard by pressing S, they are taken to the scoreboard screen which is shown below.
 
 ### Show top 10 Scores/View scoreboard screen
 This is the second choice shown to the user at the beginning of the game or at the welcome screen. It is also the screen that shows when the user press S on the end of quiz screen. It shows the sustainability quiz top ten scores. The name of the player, the score, and the date they played. After the user has viewed the scored, they have the choice to proceed to play the quiz or quit by pressing P and Q respectively. P takes them to the quiz instructions then to the quiz, Q takes them to the welcome screen.
@@ -69,7 +71,7 @@ This is the second choice shown to the user at the beginning of the game or at t
 - [ASCII art](http://patorjk.com/software/taag/#p=testall&h=1&f=Rounded&t=gameover)- to create gameover and logo art image
 
 # Testing
-Firstly conntiuos testing during app development was implemented. Writing individual functions and testing them using print statements to ensure intended results were obtained. I tested from when the game begins, where the menu is displayed, testing if correct inputs were being entered. In this case if the input is not valid the user is asked again to put a valid input before they can continue. 
+Firstly conntinuos testing during app development was implemented. Writing individual functions and testing them using print statements to ensure intended results were obtained. I tested from when the game begins, where the menu is displayed, testing if correct inputs were being entered. In this case if the input is not valid the user is asked again to put a valid input before they can continue. 
 
 When the user views the scoreboard, I tested to ensure only the valid keypresses are accepted for users to either play or quit the game. Same applies to questions, I tested to ensure questions are displayed randomly, correct feedback given depending on answer, also valid answers to be provide else user will be asked to enter a valid input before they can continue.
 
@@ -78,6 +80,7 @@ When the game ends, user is given choices to replay, view scoreboard or quit by 
 ### Bugs
 - In trying to validate the user name, I first used if statements which would run only once, the next input a user makes would then be accepted as a valid user name which is something I did not want. I wanted only letters from 'a' to 'z' for the name to be valid. To correct this, a while loop was used instead.
 - After deploying to heroku, I had a situation whereby if a user plays the game and gets a very high, when I choose to view the scoreboard when the game ends the score would not appear at the scoreboard unless only the whole app is refreshed. To correct this, only one line of code was needed which I did not utilise earlier. I had to use the get_all_values() gspread method.
+- I later on asked fellow students on slack to review my quiz, one pointed the issue of trailing white spaces when user chooses an answer such that correct answers end up being wrong. This has since been resolved by using the strip() python method.
 
 ### Validator testing
 - run.py
@@ -89,11 +92,7 @@ When the game ends, user is given choices to replay, view scoreboard or quit by 
 
 ![constants](assets/images/Screenshot_104.png)
 
-The python file has no errors reported, however the constants file has one trailing white space caused by the ASCII art, something that adds some wow effect to the game.
-
-
-
-
+The python file has no errors reported, however the constants file has one trailing white space caused by the ASCII art, which was needed for this game for some wow effect.
 
 
 # Deployment
