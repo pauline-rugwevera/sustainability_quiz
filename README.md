@@ -1,7 +1,7 @@
 # SUSTAINABILITY QUIZ
-Are you walking the talk when it comes to sustainability? Sustainability means meeting our own needs without compromising the ability of future generations to meet their own needs. In addition to natural resources, we also need social and economic resources. Sustainability is not just environmentalism. Embedded in most definitions of sustainability we also find concerns for social equity and economic development. This Sustainability quiz is a game built using python to further test the users their understanding of what sustainability is all about.
+Sustainability means meeting our own needs without compromising the ability of future generations to meet their own needs. In addition to natural resources, we also need social and economic resources. Sustainability is not just environmentalism. Embedded in most definitions of sustainability we also find concerns for social equity and economic development. This Sustainability quiz is a funny game built using python to test the users their understanding as well as educating them of what sustainability is all about.
 
-![logo](assets/images/Screenshot_93.png)
+![logo](assets/images/Screenshot_105.png)
 
 [Link to live website](https://sustainability-quiz-app.herokuapp.com/)
 # UX
